@@ -1,0 +1,25 @@
+[package]
+name = "vending-machine"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+alloy-primitives.workspace = true
+stylus-sdk.workspace = true
+
+[dev-dependencies]
+stylus-sdk = { workspace = true, features = ["stylus-test"] }
+
+[features]
+default = ["stylus-sdk/mini-alloc"]
+export-abi = ["stylus-sdk/export-abi"]
+debug = ["stylus-sdk/debug"]
+
+[lib]
+crate-type = ["lib", "cdylib"]
+doctest = false
+
+[[bin]]
+name = "vending-machine"
+path = "src/main.rs"

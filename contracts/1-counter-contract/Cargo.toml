@@ -1,0 +1,28 @@
+[package]
+name = "counter-contract"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+keywords = ["arbitrum", "ethereum", "stylus", "alloy"]
+
+[dependencies]
+alloy-primitives.workspace = true
+alloy-sol-types.workspace = true
+stylus-sdk.workspace = true
+hex.workspace = true
+
+[dev-dependencies]
+stylus-sdk = { workspace = true, features = ["stylus-test"] }
+
+[features]
+default = ["stylus-sdk/mini-alloc"]
+export-abi = ["stylus-sdk/export-abi"]
+debug = ["stylus-sdk/debug"]
+
+[lib]
+crate-type = ["lib", "cdylib"]
+doctest = false
+
+[[bin]]
+name = "counter-contract"
+path = "src/main.rs"
